@@ -48,25 +48,19 @@
       <div class="contact-line"><b>Turnaround</b> 2–5 days, most projects</div>
     </div>
 
-    <form id="orderForm" class="order-form"
-      action="https://docs.google.com/forms/d/e/1FAIpQLScOg3tzmGXaym0uUAZiZ4N_qK5kDHV5anBPtvega2_3EJ-iPw/formResponse"
-      method="POST" target="hidden_iframe_submit">
-
-      <input type="hidden" name="fbzx" value="-6344456236993244705">
-      <input type="hidden" name="fvv" value="1">
-      <input type="hidden" name="pageHistory" value="0">
+    <form id="orderForm" class="order-form">
 
       <div class="form-row">
         <label for="name">Name</label>
-        <input type="text" id="name" name="entry.899312037" required placeholder="Full name">
+        <input type="text" id="name" required placeholder="Full name">
       </div>
       <div class="form-row">
         <label for="email">Email</label>
-        <input type="email" id="email" name="entry.1704923966" required placeholder="you@company.com">
+        <input type="email" id="email" required placeholder="you@company.com">
       </div>
       <div class="form-row">
         <label for="service">Project type</label>
-        <select id="service" name="entry.206121068">
+        <select id="service">
           <option>Website development</option>
           <option>Logo & brand identity</option>
           <option>Event & campaign materials</option>
@@ -76,18 +70,16 @@
       </div>
       <div class="form-row">
         <label for="details">Project details</label>
-        <textarea id="details" name="entry.1573850212" placeholder="What is this for, and what do you already have to work with (existing branding, content, references)?"></textarea>
+        <textarea id="details" placeholder="What is this for, and what do you already have to work with (existing branding, content, references)?"></textarea>
       </div>
       <div class="form-row">
         <label for="ideal">Describe your ideal project result</label>
-        <textarea id="ideal" name="entry.1700497201" placeholder="What does success look like when this is finished?"></textarea>
+        <textarea id="ideal" placeholder="What does success look like when this is finished?"></textarea>
       </div>
 
       <button type="submit" class="submit-btn" id="orderSubmitBtn">Get my flat price →</button>
-      <p class="form-note">No payment required to request a quote.</p>
+      <p class="form-note" id="formNote">No payment required to request a quote.</p>
     </form>
-
-    <iframe name="hidden_iframe_submit" style="display:none;" title="submission handler"></iframe>
   </div>
 </section>
 

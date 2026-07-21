@@ -33,12 +33,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- Contact form (contact.html only) ----------
-  // Our own native form posts directly to the Google Form's response endpoint via
-  // a hidden iframe target, so the visible page never navigates away. That gives us
-  // full control over styling, pre-fill, and a real custom "thank you" screen.
+  // Our own native form sends its data straight to a Google Apps Script web app
+  // (deployed from the order-tracking Sheet), which appends a new row directly.
+  // No tokens to expire, no third-party form UI — just a plain POST to our own script.
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw8wul61CYI2VWAH5ljW503Yfwu3GYCfsywwervZjqCBOqgct0O-kZkymflbNFX_BXeaw/exec';
+
   const orderForm = document.getElementById('orderForm');
   const thankYouOverlay = document.getElementById('thankYouOverlay');
   const orderSubmitBtn = document.getElementById('orderSubmitBtn');
+  const formNote = document.getElementById('formNote');
 
   if (orderForm) {
     // Pre-fill from a product example's "Order yours now" button
@@ -49,6 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceField = document.getElementById('service');
     const detailsField = document.getElementById('details');
     const nameField = document.getElementById('name');
+    const emailField = document.getElementById('email');
+    const idealField = document.getElementById('ideal');
 
     if (service && serviceField) serviceField.value = service;
     if (details && detailsField) detailsField.value = details;
@@ -56,19 +61,45 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => nameField && nameField.focus(), 300);
     }
 
-    orderForm.addEventListener('submit', () => {
-      // Don't preventDefault — let the native POST fire into the hidden iframe
-      // in the background. We just show the confirmation immediately.
+    orderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = nameField.value.trim();
+      const email = emailField.value.trim();
+      if (!name || !email) {
+        if (formNote) formNote.textContent = 'Please fill in your name and email first.';
+        return;
+      }
+
       if (orderSubmitBtn) {
         orderSubmitBtn.disabled = true;
         orderSubmitBtn.textContent = 'Sending…';
       }
+
+      const payload = {
+        name: name,
+        email: email,
+        service: serviceField.value,
+        details: detailsField.value.trim(),
+        ideal: idealField.value.trim()
+      };
+
+      // mode: 'no-cors' means we can't read the response back — Apps Script's
+      // CORS behavior is inconsistent, so we send it and trust it, same as any
+      // fire-and-forget webhook call.
+      fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).catch(() => { /* opaque response expected — ignore */ });
+
       setTimeout(() => {
         if (thankYouOverlay) {
           thankYouOverlay.classList.add('open');
           document.body.style.overflow = 'hidden';
         }
-      }, 400);
+      }, 500);
     });
   }
 
