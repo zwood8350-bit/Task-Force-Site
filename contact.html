@@ -48,11 +48,53 @@
       <div class="contact-line"><b>Turnaround</b> 2–5 days, most projects</div>
     </div>
 
-    <div class="gform-wrap">
-      <iframe id="gform" src="https://docs.google.com/forms/d/e/1FAIpQLScOg3tzmGXaym0uUAZiZ4N_qK5kDHV5anBPtvega2_3EJ-iPw/viewform?embedded=true" width="100%" height="1278" frameborder="0" marginheight="0" marginwidth="0" title="Task Force project request form">Loading…</iframe>
-    </div>
+    <form id="orderForm" class="order-form"
+      action="https://docs.google.com/forms/d/e/1FAIpQLScOg3tzmGXaym0uUAZiZ4N_qK5kDHV5anBPtvega2_3EJ-iPw/formResponse"
+      method="POST" target="hidden_iframe_submit">
+
+      <div class="form-row">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="entry.899312037" required placeholder="Full name">
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="entry.1704923966" required placeholder="you@company.com">
+      </div>
+      <div class="form-row">
+        <label for="service">Project type</label>
+        <select id="service" name="entry.206121068">
+          <option>Website development</option>
+          <option>Logo & brand identity</option>
+          <option>Event & campaign materials</option>
+          <option>Custom merchandise</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="details">Project details</label>
+        <textarea id="details" name="entry.1573850212" placeholder="What is this for, and what do you already have to work with (existing branding, content, references)?"></textarea>
+      </div>
+      <div class="form-row">
+        <label for="ideal">Describe your ideal project result</label>
+        <textarea id="ideal" name="entry.1700497201" placeholder="What does success look like when this is finished?"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="orderSubmitBtn">Get my flat price →</button>
+      <p class="form-note">No payment required to request a quote.</p>
+    </form>
+
+    <iframe name="hidden_iframe_submit" style="display:none;" title="submission handler"></iframe>
   </div>
 </section>
+
+<div class="modal-overlay" id="thankYouOverlay">
+  <div class="modal-box thankyou-box">
+    <div class="thankyou-icon">✓</div>
+    <h3 class="modal-title">Thank you for your order!</h3>
+    <p class="modal-desc">You will be contacted shortly after your purchase.</p>
+    <a href="index.html" class="btn-primary" style="display:block; text-align:center;">Return to homepage</a>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">

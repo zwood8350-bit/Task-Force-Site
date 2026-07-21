@@ -33,24 +33,52 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ---------- Contact form (contact.html only) ----------
-  // The site links to a Google Form embedded in an iframe. When arriving here
-  // from a product example's "Order yours now" button (contact.html?service=...&details=...),
-  // rebuild the iframe's src with the Google Form's own prefill parameters so the
-  // embedded form opens already filled in.
-  const gformFrame = document.getElementById('gform');
+  // Our own native form posts directly to the Google Form's response endpoint via
+  // a hidden iframe target, so the visible page never navigates away. That gives us
+  // full control over styling, pre-fill, and a real custom "thank you" screen.
+  const orderForm = document.getElementById('orderForm');
+  const thankYouOverlay = document.getElementById('thankYouOverlay');
+  const orderSubmitBtn = document.getElementById('orderSubmitBtn');
 
-  if (gformFrame) {
+  if (orderForm) {
+    // Pre-fill from a product example's "Order yours now" button
+    // (contact.html?service=...&details=...)
     const params = new URLSearchParams(location.search);
     const service = params.get('service');
     const details = params.get('details');
+    const serviceField = document.getElementById('service');
+    const detailsField = document.getElementById('details');
+    const nameField = document.getElementById('name');
 
+    if (service && serviceField) serviceField.value = service;
+    if (details && detailsField) detailsField.value = details;
     if (service || details) {
-      const GFORM_BASE = 'https://docs.google.com/forms/d/e/1FAIpQLScOg3tzmGXaym0uUAZiZ4N_qK5kDHV5anBPtvega2_3EJ-iPw/viewform';
-      const gformParams = new URLSearchParams({ embedded: 'true' });
-      if (service) gformParams.set('entry.206121068', service);
-      if (details) gformParams.set('entry.1573850212', details);
-      gformFrame.src = `${GFORM_BASE}?${gformParams.toString()}`;
+      setTimeout(() => nameField && nameField.focus(), 300);
     }
+
+    orderForm.addEventListener('submit', () => {
+      // Don't preventDefault — let the native POST fire into the hidden iframe
+      // in the background. We just show the confirmation immediately.
+      if (orderSubmitBtn) {
+        orderSubmitBtn.disabled = true;
+        orderSubmitBtn.textContent = 'Sending…';
+      }
+      setTimeout(() => {
+        if (thankYouOverlay) {
+          thankYouOverlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+      }, 400);
+    });
+  }
+
+  if (thankYouOverlay) {
+    thankYouOverlay.addEventListener('click', (e) => {
+      if (e.target === thankYouOverlay) {
+        thankYouOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
   }
 
   // ---------- Product example modal (capabilities.html only) ----------
