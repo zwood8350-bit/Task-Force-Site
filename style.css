@@ -93,6 +93,41 @@
     -webkit-backdrop-filter:blur(14px);
     border-bottom:1px solid var(--border);
   }
+
+  .promo-bar{
+    background:linear-gradient(120deg, var(--accent), var(--accent2), var(--accent3));
+    padding:10px 0;
+  }
+  .promo-bar-inner{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+  .promo-bar span{
+    font-family:'JetBrains Mono', monospace;
+    font-weight:600;
+    font-size:0.82rem;
+    color:#06110D;
+  }
+  .promo-strike{
+    text-decoration:line-through;
+    opacity:0.65;
+    margin-left:2px;
+  }
+  .promo-bar a{
+    background:#06110D;
+    color:#FFFFFF;
+    padding:6px 16px;
+    border-radius:999px;
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:0.78rem;
+    text-decoration:none;
+    white-space:nowrap;
+  }
   nav.wrap{
     display:flex; align-items:center; justify-content:space-between;
     height:72px;
@@ -349,6 +384,59 @@
     padding:30px 28px;
     margin-bottom:20px;
     background:var(--surface);
+  }
+
+  .promo-card{
+    position:relative;
+    border-radius:14px;
+    padding:2px;
+    margin-bottom:20px;
+    background:linear-gradient(120deg, var(--accent), var(--accent2), var(--accent3));
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+  .promo-card::before{
+    content:"";
+    position:absolute; inset:2px;
+    background:var(--surface);
+    border-radius:12px;
+    z-index:0;
+  }
+  .promo-card-text, .promo-card-price{ position:relative; z-index:1; }
+  .promo-card-text{ padding:26px 30px; flex:1; min-width:260px; }
+  .promo-card-tag{
+    display:inline-block;
+    font-family:'JetBrains Mono', monospace;
+    font-size:0.7rem;
+    font-weight:700;
+    color:var(--accent3);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    margin-bottom:10px;
+  }
+  .promo-card-text h3{ font-size:1.2rem; margin-bottom:8px; }
+  .promo-card-text p{ color:var(--muted); font-size:0.92rem; max-width:440px; }
+  .promo-card-price{
+    padding:26px 30px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:8px;
+  }
+  .promo-card-was{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--muted);
+    text-decoration:line-through;
+    font-size:0.9rem;
+  }
+  .promo-card-now{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:700;
+    font-size:2rem;
+    color:var(--text);
   }
   .tier-heading{ font-size:1.2rem; margin:10px 0 6px; font-weight:600; }
   .tier-sub{ color:var(--muted); font-size:0.92rem; margin-bottom:22px; max-width:520px; }
