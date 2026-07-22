@@ -333,4 +333,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // ---------- Scroll-reveal animations (every page) ----------
+  // Cards, tiers, steps, and stat blocks fade/slide into view as they enter the
+  // viewport, instead of all being visible immediately on load.
+  const revealEls = document.querySelectorAll(
+    '.card, .tier, .step, .value-item, .wwd-item, .founding-box, .promo-card'
+  );
+
+  if (revealEls.length) {
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+    } else {
+      // No IntersectionObserver support — just show everything immediately.
+      revealEls.forEach(el => el.classList.add('in-view'));
+    }
+  }
+
 });
