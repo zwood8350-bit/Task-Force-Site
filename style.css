@@ -875,6 +875,7 @@
     border-bottom:1px solid var(--border);
   }
   .founding-box{
+    position:relative;
     border:1px solid var(--accent3);
     background:var(--accent3-dim);
     border-radius:14px;
@@ -884,11 +885,24 @@
     align-items:center;
     gap:24px;
     flex-wrap:wrap;
+    overflow:hidden;
+  }
+  .founding-quote{
+    position:absolute;
+    top:-30px; left:8px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size:9rem;
+    font-weight:700;
+    color:var(--accent3);
+    opacity:0.12;
+    line-height:1;
+    pointer-events:none;
   }
   .founding-box .btn-primary{ background:var(--accent3); box-shadow:none; }
   .founding-box h3{ font-size:1.15rem; margin-bottom:8px; }
   .founding-box p{ color:var(--muted); font-size:0.92rem; max-width:480px; }
   .founding-box .btn-primary{ white-space:nowrap; }
+  .founding-box > div, .founding-box > a{ position:relative; z-index:1; }
 
   /* ---------- REUSABLE BOTTOM CTA BANNER ---------- */
   .cta-banner{
@@ -898,6 +912,112 @@
   .cta-banner h2{ font-size:clamp(1.6rem,3vw,2.1rem); margin-bottom:14px; }
   .cta-banner p{ color:var(--muted); font-size:0.96rem; margin-bottom:26px; max-width:480px; margin-left:auto; margin-right:auto; }
   .cta-banner .hero-ctas{ justify-content:center; }
+
+  /* ---------- MARQUEE ---------- */
+  .marquee{
+    overflow:hidden;
+    border-bottom:1px solid var(--border);
+    padding:16px 0;
+    background:var(--surface);
+  }
+  .marquee-track{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    width:max-content;
+    animation:marquee-scroll 26s linear infinite;
+  }
+  .marquee-track span:not(.dot){
+    font-family:'JetBrains Mono', monospace;
+    font-weight:700;
+    font-size:0.88rem;
+    color:var(--muted);
+    white-space:nowrap;
+  }
+  .dot{ font-size:0.7rem; }
+  .dot-a{ color:var(--accent); }
+  .dot-b{ color:var(--accent3); }
+  .dot-c{ color:var(--accent2); }
+  .dot-d{ color:var(--accent4); }
+  @keyframes marquee-scroll{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+
+  /* ---------- WHAT WE DO GRID ---------- */
+  .wwd{ padding:88px 0; border-bottom:1px solid var(--border); }
+  .wwd h2{ font-size:clamp(1.7rem,3vw,2.2rem); margin:14px 0 40px; max-width:600px; }
+  .wwd-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+  }
+  @media (max-width:900px){ .wwd-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:520px){ .wwd-grid{ grid-template-columns:1fr; } }
+  .wwd-item{
+    background:var(--surface);
+    padding:28px 24px;
+    text-decoration:none;
+    color:inherit;
+    display:block;
+    transition:background .15s, transform .15s;
+  }
+  .wwd-item:hover{ background:var(--surface-2); transform:translateY(-2px); }
+  .wwd-icon{ width:36px; height:36px; margin-bottom:16px; }
+  .wwd-item h3{ font-size:1rem; margin-bottom:8px; font-weight:600; }
+  .wwd-item p{ color:var(--muted); font-size:0.86rem; }
+
+  /* ---------- FAQ ACCORDION ---------- */
+  .accordion{
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .accordion-item{ border-bottom:1px solid var(--border); }
+  .accordion-item:last-child{ border-bottom:none; }
+  .accordion-trigger{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    color:var(--text);
+    padding:22px 24px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+    cursor:pointer;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight:600;
+    font-size:1rem;
+    transition:background .15s;
+  }
+  .accordion-trigger:hover{ background:var(--surface-2); }
+  .accordion-icon{
+    font-family:'JetBrains Mono', monospace;
+    color:var(--accent);
+    font-size:1.3rem;
+    font-weight:400;
+    flex-shrink:0;
+    transition:transform .2s;
+  }
+  .accordion-item.open .accordion-icon{ transform:rotate(45deg); }
+  .accordion-panel{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+  }
+  .accordion-panel-inner{
+    padding:0 24px 22px;
+    color:var(--muted);
+    font-size:0.92rem;
+    max-width:600px;
+  }
 
   @media (prefers-reduced-motion: reduce){
     *{ transition:none !important; scroll-behavior:auto !important; animation:none !important; }
