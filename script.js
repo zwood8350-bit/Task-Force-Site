@@ -277,6 +277,56 @@ document.addEventListener('DOMContentLoaded', () => {
         <circle cx="310" cy="185" r="32" fill="#161B24" stroke="#7C93FF" stroke-width="1.5" stroke-dasharray="3 3"/>
         <circle cx="310" cy="185" r="13" fill="#7C93FF"/>
       </svg>`
+    },
+    professor: {
+      eyebrow: 'Professor Package',
+      title: 'Dr. Alan Reyes, Biology Faculty',
+      price: '$275',
+      service: 'Website development',
+      desc: 'A faculty website built around how students and colleagues actually look someone up — CV, publications, courses, and office hours, all in one place.',
+      features: ['5+ pages, academic-focused layout', 'Unlimited revisions for 50 days'],
+      svg: `<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="260" fill="#0A0D12"/>
+        <rect x="24" y="24" width="432" height="212" rx="8" fill="#11151C" stroke="#232A36"/>
+        <rect x="24" y="24" width="432" height="30" rx="8" fill="#161B24"/>
+        <circle cx="42" cy="39" r="4" fill="#FF5F57"/><circle cx="56" cy="39" r="4" fill="#FEBC2E"/><circle cx="70" cy="39" r="4" fill="#28C840"/>
+        <circle cx="70" cy="90" r="20" fill="#1B222E" stroke="#4FE3C1" stroke-width="1.5"/>
+        <rect x="104" y="76" width="130" height="10" rx="3" fill="#E9EDF3"/>
+        <rect x="104" y="94" width="90" height="7" rx="2" fill="#5B6478"/>
+        <rect x="46" y="128" width="60" height="8" rx="2" fill="#4FE3C1"/>
+        <rect x="46" y="144" width="380" height="6" rx="2" fill="#232A36"/>
+        <rect x="46" y="156" width="340" height="6" rx="2" fill="#232A36"/>
+        <rect x="46" y="168" width="360" height="6" rx="2" fill="#232A36"/>
+        <rect x="46" y="188" width="60" height="8" rx="2" fill="#7C93FF"/>
+        <rect x="46" y="204" width="150" height="18" rx="4" fill="#1B222E" stroke="#232A36"/>
+        <rect x="210" y="204" width="150" height="18" rx="4" fill="#1B222E" stroke="#232A36"/>
+      </svg>`
+    },
+    bundle: {
+      eyebrow: 'Business Bundle',
+      title: 'Riverside Hardware Co.',
+      price: '$300',
+      service: 'Other',
+      desc: 'A website, a logo with a basic brand kit, and a merch design — scoped and delivered together so everything actually matches.',
+      features: ['Pro website (5+ pages)', 'Logo + brand kit + one merch design'],
+      svg: `<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="260" fill="#0A0D12"/>
+        <rect x="24" y="24" width="220" height="150" rx="8" fill="#11151C" stroke="#4FE3C1" stroke-width="1.5"/>
+        <rect x="24" y="24" width="220" height="22" rx="8" fill="#161B24"/>
+        <circle cx="38" cy="35" r="3" fill="#FF5F57"/><circle cx="48" cy="35" r="3" fill="#FEBC2E"/><circle cx="58" cy="35" r="3" fill="#28C840"/>
+        <rect x="40" y="66" width="90" height="8" rx="2" fill="#E9EDF3"/>
+        <rect x="40" y="82" width="140" height="6" rx="2" fill="#5B6478"/>
+        <rect x="40" y="102" width="90" height="26" rx="5" fill="#4FE3C1"/>
+        <rect x="264" y="24" width="94" height="94" rx="10" fill="#11151C" stroke="#FF6FB5" stroke-width="1.5"/>
+        <circle cx="311" cy="71" r="24" fill="#1B222E" stroke="#FF6FB5" stroke-width="1.5"/>
+        <rect x="376" y="24" width="80" height="80" rx="10" fill="#11151C" stroke="#FFC145" stroke-width="1.5"/>
+        <circle cx="416" cy="64" r="20" fill="#1B222E" stroke="#FFC145" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="416" cy="64" r="8" fill="#FFC145"/>
+        <rect x="264" y="132" width="192" height="42" rx="6" fill="#11151C" stroke="#232A36"/>
+        <text x="360" y="158" font-family="Arial" font-size="10" fill="#8B94A5" text-anchor="middle">site + logo + merch, one order</text>
+        <path d="M250 70 L260 70" stroke="#5B6478" stroke-width="2"/>
+        <path d="M250 165 L376 165" stroke="#5B6478" stroke-width="1" stroke-dasharray="2 3"/>
+      </svg>`
     }
   };
 

@@ -15,19 +15,19 @@
   }
 
   html[data-theme="light"]{
-    --bg: #F6F7FA;
+    --bg: #F8F9FB;
     --surface: #FFFFFF;
-    --surface-2: #EEF1F5;
-    --border: #DEE2E9;
+    --surface-2: #EEF1F6;
+    --border: #DDE2EA;
     --text: #14171F;
     --muted: #5B6478;
-    --accent: #0EA98C;
-    --accent-dim: rgba(14,169,140,0.10);
-    --accent2: #4C63D6;
-    --accent3: #DB3E88;
-    --accent3-dim: rgba(219,62,136,0.10);
-    --accent4: #C67F00;
-    --accent4-dim: rgba(198,127,0,0.10);
+    --accent: #067D68;
+    --accent-dim: rgba(6,125,104,0.10);
+    --accent2: #2954E5;
+    --accent3: #C4207A;
+    --accent3-dim: rgba(196,32,122,0.10);
+    --accent4: #A6650A;
+    --accent4-dim: rgba(166,101,10,0.10);
   }
 
   *{ margin:0; padding:0; box-sizing:border-box; }
@@ -62,13 +62,13 @@
 
   html[data-theme="light"] body{
     background-image:
-      radial-gradient(560px circle at 12% 6%,  rgba(14,169,140,0.09), transparent 62%),
-      radial-gradient(620px circle at 88% 16%, rgba(219,62,136,0.08), transparent 62%),
-      radial-gradient(580px circle at 8% 40%,  rgba(76,99,214,0.08), transparent 62%),
-      radial-gradient(560px circle at 92% 55%, rgba(198,127,0,0.07), transparent 62%),
-      radial-gradient(600px circle at 15% 72%, rgba(14,169,140,0.07), transparent 62%),
-      radial-gradient(620px circle at 90% 88%, rgba(219,62,136,0.07), transparent 62%),
-      radial-gradient(580px circle at 10% 98%, rgba(76,99,214,0.07), transparent 62%);
+      radial-gradient(560px circle at 12% 6%,  rgba(6,125,104,0.11), transparent 62%),
+      radial-gradient(620px circle at 88% 16%, rgba(196,32,122,0.10), transparent 62%),
+      radial-gradient(580px circle at 8% 40%,  rgba(41,84,229,0.09), transparent 62%),
+      radial-gradient(560px circle at 92% 55%, rgba(166,101,10,0.09), transparent 62%),
+      radial-gradient(600px circle at 15% 72%, rgba(6,125,104,0.09), transparent 62%),
+      radial-gradient(620px circle at 90% 88%, rgba(196,32,122,0.09), transparent 62%),
+      radial-gradient(580px circle at 10% 98%, rgba(41,84,229,0.08), transparent 62%);
   }
 
   h1,h2,h3{
@@ -586,16 +586,25 @@
   .card.card-magenta{ border-top-color:var(--accent3); }
   .card.card-blue{ border-top-color:var(--accent2); }
   .card.card-amber{ border-top-color:var(--accent4); }
+  .card.card-bundle{
+    border-top:3px solid;
+    border-image:linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3), var(--accent4)) 1;
+  }
   .card.card-magenta .card-path span{ color:var(--accent3); }
   .card.card-blue .card-path span{ color:var(--accent2); }
   .card.card-amber .card-path span{ color:var(--accent4); }
+  .card.card-bundle .card-path span{ color:var(--accent3); }
 
   .card-path{
     font-family:'JetBrains Mono', monospace;
     font-size:0.74rem;
     color:var(--muted);
     margin-bottom:14px;
-    display:block;
+    display:inline-block;
+    background:var(--surface-2);
+    border:1px solid var(--border);
+    padding:4px 9px;
+    border-radius:6px;
   }
   .card-path span{ color:var(--accent); }
   .card h3{ font-size:1.2rem; margin-bottom:10px; font-weight:600; }
@@ -643,7 +652,7 @@
   }
   .tier.tier-standard .example-line, .card-blue .example-line{ background:rgba(124,147,255,0.12); border-left-color:var(--accent2); }
   .tier.tier-standard .example-tag, .card-blue .example-tag{ color:var(--accent2); }
-  .tier.tier-pro .example-line, .card-magenta .example-line{ background:var(--accent3-dim); border-left-color:var(--accent3); }
+  .tier.tier-pro .example-line, .card-magenta .example-line, .card-bundle .example-line{ background:var(--accent3-dim); border-left-color:var(--accent3); }
   .tier.tier-pro .example-tag, .card-magenta .example-tag{ color:var(--accent3); }
   .card-amber .example-line{ background:var(--accent4-dim); border-left-color:var(--accent4); }
   .card-amber .example-tag{ color:var(--accent4); }
@@ -1117,6 +1126,7 @@
   .card.card-magenta:hover, .tier.tier-pro:hover{ box-shadow:0 20px 40px -18px rgba(0,0,0,0.55), 0 0 30px -10px rgba(255,111,181,0.3); }
   .card.card-blue:hover, .tier.tier-standard:hover{ box-shadow:0 20px 40px -18px rgba(0,0,0,0.55), 0 0 30px -10px rgba(124,147,255,0.3); }
   .card.card-amber:hover{ box-shadow:0 20px 40px -18px rgba(0,0,0,0.55), 0 0 30px -10px rgba(255,193,69,0.3); }
+  .card.card-bundle:hover{ box-shadow:0 20px 40px -18px rgba(0,0,0,0.55), 0 0 30px -10px rgba(255,111,181,0.25), 0 0 30px -10px rgba(124,147,255,0.2); }
   .wwd-item:hover{
     transform:translateY(-6px) scale(1.02);
     box-shadow:0 18px 34px -16px rgba(0,0,0,0.5);
