@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // ---------- Dark / light theme toggle ----------
   const themeToggle = document.getElementById('themeToggle');
   const themeToggleMobile = document.getElementById('themeToggleMobile');
+  const themeSwitchLabel = document.getElementById('themeSwitchLabel');
 
   function applyThemeButtons(theme) {
     const isLight = theme === 'light';
-    if (themeToggle) themeToggle.textContent = isLight ? '☀️' : '🌙';
-    if (themeToggleMobile) themeToggleMobile.textContent = isLight ? '☀️ Switch to dark mode' : '🌙 Switch to light mode';
+    [themeToggle, themeToggleMobile].forEach(btn => {
+      if (btn) btn.setAttribute('aria-checked', isLight ? 'true' : 'false');
+    });
+    if (themeSwitchLabel) themeSwitchLabel.textContent = isLight ? 'Light mode' : 'Dark mode';
   }
 
   applyThemeButtons(document.documentElement.getAttribute('data-theme') || 'dark');

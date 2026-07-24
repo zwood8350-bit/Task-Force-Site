@@ -36,7 +36,11 @@
         <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
       </ul>
       <a href="contact.html" class="nav-cta">Get an estimate →</a>
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">🌙</button>
+      <button class="theme-switch" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle light/dark mode">
+        <span class="theme-switch-icon icon-sun">☀️</span>
+        <span class="theme-switch-icon icon-moon">🌙</span>
+        <span class="theme-switch-knob"></span>
+      </button>
     </div>
     <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -49,7 +53,14 @@
     <a href="faq.html" class="nav-link" data-page="faq">FAQ</a>
     <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
     <a href="contact.html" class="nav-cta">Get an estimate →</a>
-    <button class="theme-toggle theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle light/dark mode">🌙 Switch to light mode</button>
+    <div class="theme-switch-row">
+      <span class="theme-switch-label" id="themeSwitchLabel">Dark mode</span>
+      <button class="theme-switch theme-switch-mobile" id="themeToggleMobile" role="switch" aria-checked="false" aria-label="Toggle light/dark mode">
+        <span class="theme-switch-icon icon-sun">☀️</span>
+        <span class="theme-switch-icon icon-moon">🌙</span>
+        <span class="theme-switch-knob"></span>
+      </button>
+    </div>
   </div>
 </header>
 
