@@ -6,6 +6,29 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ---------- Dark / light theme toggle ----------
+  const themeToggle = document.getElementById('themeToggle');
+  const themeToggleMobile = document.getElementById('themeToggleMobile');
+
+  function applyThemeButtons(theme) {
+    const isLight = theme === 'light';
+    if (themeToggle) themeToggle.textContent = isLight ? '☀️' : '🌙';
+    if (themeToggleMobile) themeToggleMobile.textContent = isLight ? '☀️ Switch to dark mode' : '🌙 Switch to light mode';
+  }
+
+  applyThemeButtons(document.documentElement.getAttribute('data-theme') || 'dark');
+
+  function toggleTheme() {
+    const current = document.documentElement.getAttribute('data-theme') || 'dark';
+    const next = current === 'light' ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('tf-theme', next);
+    applyThemeButtons(next);
+  }
+
+  if (themeToggle) themeToggle.addEventListener('click', toggleTheme);
+  if (themeToggleMobile) themeToggleMobile.addEventListener('click', toggleTheme);
+
   // ---------- Mobile menu toggle (present on every page's header) ----------
   const navToggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -117,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     starter: {
       eyebrow: 'Website — Starter',
       title: 'Riverside Dog Walking',
-      price: '$50 flat',
+      price: '~$50',
       service: 'Website development',
       desc: 'A one-page site so a client can point people somewhere real instead of just a phone number in a text thread.',
       features: ['1 page', 'Services, area & phone number', 'Mobile-friendly'],
@@ -137,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
     standard: {
       eyebrow: 'Website — Standard',
       title: 'Sunrise Bakery',
-      price: '$100 flat',
+      price: '~$100',
       service: 'Website development',
       desc: 'A multi-page site with a real menu and gallery — enough for people to decide to visit before they arrive.',
       features: ['Up to 4 pages', 'Photo gallery / menu layout', 'Contact form'],
@@ -165,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     pro: {
       eyebrow: 'Website — Pro',
       title: 'Elena Cruz Photography',
-      price: '$250 flat',
+      price: '~$250',
       service: 'Website development',
       desc: 'A full portfolio site with a booking flow — built for a business where the site has to do real selling.',
       features: ['5+ pages', 'Custom sections & booking form', 'Priority build time'],
@@ -193,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logo: {
       eyebrow: 'Logo & brand identity',
       title: 'Brew & Go Coffee Cart',
-      price: '$30 flat',
+      price: '~$30',
       service: 'Logo & brand identity',
       desc: 'One mark, built to actually work everywhere a small business needs it — not just as a single flat image.',
       features: ['3 concepts, refined to one', 'Print and web-ready files'],
@@ -213,7 +236,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event: {
       eyebrow: 'Event & campaign materials',
       title: "Maya's Sweet 16",
-      price: '$20 flat',
+      price: '~$20',
       service: 'Event & campaign materials',
       desc: 'A digital invite matched to the exact theme and colors of the event, ready to send or print.',
       features: ['Digital and print-ready formats', 'Matched to your colors and tone'],
@@ -233,7 +256,7 @@ document.addEventListener('DOMContentLoaded', () => {
     merch: {
       eyebrow: 'Custom merchandise',
       title: 'Ironwood FC Youth Soccer',
-      price: '$15 flat design',
+      price: '~$15 design',
       service: 'Custom merchandise',
       desc: 'A sticker sheet designed for real production — printing and shipping quoted separately based on quantity.',
       features: ['Print-ready, any size or finish', 'Unlimited design revisions'],
