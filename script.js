@@ -327,6 +327,76 @@ document.addEventListener('DOMContentLoaded', () => {
         <path d="M250 70 L260 70" stroke="#5B6478" stroke-width="2"/>
         <path d="M250 165 L376 165" stroke="#5B6478" stroke-width="1" stroke-dasharray="2 3"/>
       </svg>`
+    },
+    nonprofit: {
+      eyebrow: 'Nonprofit & Community Bundle',
+      title: 'Riverside Food Pantry',
+      price: '$85',
+      service: 'Other',
+      desc: 'A donate-ready site, a flyer for the community board, and a logo — priced for organizations working with little to no design budget.',
+      features: ['1-page site + campaign flyer + logo', 'Reduced pricing for nonprofits'],
+      svg: `<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="260" fill="#0A0D12"/>
+        <rect x="24" y="24" width="432" height="212" rx="8" fill="#11151C" stroke="#232A36"/>
+        <rect x="24" y="24" width="432" height="30" rx="8" fill="#161B24"/>
+        <circle cx="42" cy="39" r="4" fill="#FF5F57"/><circle cx="56" cy="39" r="4" fill="#FEBC2E"/><circle cx="70" cy="39" r="4" fill="#28C840"/>
+        <path d="M240 82 c0,-8 -12,-8 -12,0 c0,8 12,14 12,14 c0,0 12,-6 12,-14 c0,-8 -12,-8 -12,0 Z" fill="#FFC145"/>
+        <rect x="180" y="112" width="120" height="10" rx="3" fill="#E9EDF3"/>
+        <rect x="150" y="130" width="180" height="7" rx="3" fill="#8B94A5"/>
+        <rect x="195" y="152" width="90" height="26" rx="6" fill="#FFC145"/>
+        <text x="240" y="169" font-family="Arial" font-size="10" font-weight="700" fill="#06110D" text-anchor="middle">Donate</text>
+        <text x="240" y="205" font-family="Arial" font-size="9" fill="#5B6478" text-anchor="middle">riversidefoodpantry.org</text>
+      </svg>`
+    },
+    realtor: {
+      eyebrow: 'Realtor Package',
+      title: 'Maria Alvarez, Realtor',
+      price: '$150',
+      service: 'Website development',
+      desc: 'Your own name and listings front and center — a personal agent site with a logo and brand kit, separate from a shared brokerage page.',
+      features: ['Standard site (4 pages) + listings layout', 'Logo + brand kit included'],
+      svg: `<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="260" fill="#0A0D12"/>
+        <rect x="24" y="24" width="432" height="212" rx="8" fill="#11151C" stroke="#232A36"/>
+        <rect x="24" y="24" width="432" height="30" rx="8" fill="#161B24"/>
+        <circle cx="42" cy="39" r="4" fill="#FF5F57"/><circle cx="56" cy="39" r="4" fill="#FEBC2E"/><circle cx="70" cy="39" r="4" fill="#28C840"/>
+        <circle cx="105" cy="39" r="5" fill="#7C93FF"/>
+        <rect x="46" y="76" width="140" height="9" rx="3" fill="#E9EDF3"/>
+        <rect x="46" y="92" width="200" height="6" rx="2" fill="#5B6478"/>
+        <rect x="46" y="112" width="126" height="70" rx="6" fill="#1B222E"/>
+        <rect x="177" y="112" width="126" height="70" rx="6" fill="#1B222E"/>
+        <rect x="308" y="112" width="126" height="70" rx="6" fill="#1B222E"/>
+        <rect x="52" y="160" width="60" height="6" rx="2" fill="#7C93FF"/>
+        <rect x="183" y="160" width="60" height="6" rx="2" fill="#7C93FF"/>
+        <rect x="314" y="160" width="60" height="6" rx="2" fill="#7C93FF"/>
+        <rect x="46" y="198" width="388" height="24" rx="5" fill="#161B24" stroke="#232A36"/>
+        <text x="60" y="214" font-family="Arial" font-size="9" fill="#5B6478">View all listings →</text>
+      </svg>`
+    },
+    studentorg: {
+      eyebrow: 'Student Org Bundle',
+      title: 'Campus Robotics Club',
+      price: '$55',
+      service: 'Other',
+      desc: 'A clean info page plus a sticker design — built for clubs and student government trying to actually get noticed at a recruitment table.',
+      features: ['1-page site + sticker design', 'Accessible pricing for student orgs'],
+      svg: `<svg viewBox="0 0 480 260" xmlns="http://www.w3.org/2000/svg">
+        <rect width="480" height="260" fill="#0A0D12"/>
+        <rect x="24" y="24" width="270" height="212" rx="8" fill="#11151C" stroke="#232A36"/>
+        <rect x="24" y="24" width="270" height="30" rx="8" fill="#161B24"/>
+        <circle cx="42" cy="39" r="4" fill="#FF5F57"/><circle cx="56" cy="39" r="4" fill="#FEBC2E"/><circle cx="70" cy="39" r="4" fill="#28C840"/>
+        <circle cx="159" cy="100" r="18" fill="#FF6FB5"/>
+        <rect x="100" y="130" width="118" height="9" rx="3" fill="#E9EDF3"/>
+        <rect x="80" y="148" width="158" height="6" rx="2" fill="#8B94A5"/>
+        <rect x="119" y="168" width="80" height="24" rx="6" fill="#FF6FB5"/>
+        <text x="159" y="184" font-family="Arial" font-size="9" font-weight="700" fill="#06110D" text-anchor="middle">Join us</text>
+        <circle cx="380" cy="90" r="34" fill="#161B24" stroke="#FF6FB5" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="380" cy="90" r="14" fill="#FF6FB5"/>
+        <circle cx="420" cy="150" r="26" fill="#161B24" stroke="#FFC145" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="420" cy="150" r="10" fill="#FFC145"/>
+        <circle cx="360" cy="180" r="20" fill="#161B24" stroke="#4FE3C1" stroke-width="1.5" stroke-dasharray="3 3"/>
+        <circle cx="360" cy="180" r="8" fill="#4FE3C1"/>
+      </svg>`
     }
   };
 

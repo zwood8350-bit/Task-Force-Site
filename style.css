@@ -450,6 +450,8 @@
   }
   @media (max-width:900px){ .service-grid{ grid-template-columns:1fr; } }
 
+  #bundles .service-grid{ grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+
   .tier-block{
     border:1px solid var(--border);
     border-radius:12px;
